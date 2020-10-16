@@ -1,0 +1,56 @@
+
+<ion-content >
+  <ion-header>
+    <ion-toolbar translucent>
+     Registrar admin
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="login"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <form #form="ngForm" class="ion-margin-top" method="post">
+
+    <ion-card>
+      <ion-card-header>
+<ion-card-title color="dark">Llena los campos para registrarte</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item class="ion-margin">
+          <ion-label position="floating">Nombre(s)*</ion-label>
+          <ion-input ngModel type="text" [(ngModel)]="admin.strNombre" name= "nombre" ></ion-input>
+        </ion-item>
+    
+        <ion-item class="ion-margin">
+          <ion-label position="floating">Apellido(s)*</ion-label>
+          <ion-input ngModel type="text" [(ngModel)]="admin.strApellidos" name= "apellidos"></ion-input>
+        </ion-item>
+        <ion-item class="ion-margin">
+          <ion-label position="floating">Email*</ion-label>
+          <ion-input ngModel type="email" [(ngModel)]="admin.strEmail" name= "email" ></ion-input>
+        </ion-item>
+    
+        <ion-item class="ion-margin">
+          <ion-label position="floating">Password*</ion-label>
+          <ion-input ngModel type="password" [(ngModel)]="admin.strPassword" name= "password"></ion-input>
+        </ion-item>
+        <ion-item class="ion-margin">
+          <ion-label position="floating">Telefono*</ion-label>
+          <ion-input ngModel type="tel" [(ngModel)]="admin.strTelefono" name= "telefono" ></ion-input>
+        </ion-item>
+        <p></p>
+    
+        <ion-text class="ion-margin-start" color="danger">(*)Datos necesarios</ion-text>
+      </ion-card-content>
+    </ion-card>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon (click)= "registrarAdmin(admin)" name="add"></ion-icon>
+      </ion-fab-button> 
+    </ion-fab>
+    <!--<ion-button class="ion-margin" type="submit" expand="block" (click)= "registrarAdmin(admin)" color="primary">Registrar</ion-button>-->
+  </form>
+  
+  <p></p>
+
+</ion-content>

@@ -1,0 +1,31 @@
+
+
+<ion-header>
+  <ion-toolbar>
+    Cambio de contraseña
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <form #form="ngForm"  class="ion-padding-top" method="post">
+    <div class="ion-text-center"> 
+      <small color="dark" >Este es el servicio de cambio de contraseña,por favor ingresa tu vieja contraseña y despues la contraseña por la que quieres cambiar</small>
+    </div>
+    <ion-item class="ion-margin">
+      <ion-label position="floating">Ingresa tu email</ion-label>
+        <ion-input type="text" [(ngModel)] ="user.strEmail" name="email"></ion-input>
+      </ion-item>
+    <ion-item class="ion-margin">
+    <ion-label position="floating">Nueva contraseña</ion-label>
+      <ion-input type="password" [(ngModel)] ="user.strPassword" name="pass"></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin">
+      <ion-label position="floating">Nueva contraseña otra vez</ion-label>
+        <ion-input type="password" [(ngModel)] ="strNewPass" name="newPass"></ion-input>
+      </ion-item>
+  </form>
+  <ion-button class="ion-margin" expand="block" color="primary" (click)="enviarLinkPass()">Enviar</ion-button>
+</ion-content>

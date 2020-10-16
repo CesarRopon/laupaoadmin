@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="productos">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title >
+       <small>Detalle de producto</small>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor ="let prod of producto">
+    <ion-card-header >
+      <ion-img src="https://t1.rg.ltmcdn.com/es/images/6/3/4/img_pastel_de_moka_envinado_12436_600.jpg"></ion-img>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-title>{{prod.strDescripcion}}</ion-card-title>  
+      {{prod.strDescripcion}}
+    <ion-card-subtitle>${{prod.nmbCosto}}</ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

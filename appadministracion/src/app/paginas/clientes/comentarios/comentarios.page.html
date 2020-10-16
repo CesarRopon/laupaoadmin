@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" routerLink="/clientes">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title >
+       <small>Comentarios de {{cliente.strNombre}} {{cliente.strApellidos}} </small>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-list  #myList lines="full" *ngIf="numero===0; else noclientes" >
+      <ion-item-sliding *ngFor="let comentario of comentarios">
+        <ion-card *ngIf="comentario.blnStatus === false; else commenttrue">
+          <ion-card-content>
+            <ion-item >
+              <ion-label color= "dark" class="ion-text-wrap">
+                <h2>{{comentario.strComentario}}</h2>
+                <p>{{comentario.dteFechaComentario}}</p>
+              </ion-label>
+              <ion-reorder slot="end" name="call-outline"></ion-reorder>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="primary" [routerLink] ="[comentario._id]">
+                <ion-icon slot="icon-only" name="mail"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-card-content>
+        </ion-card>
+        <ng-template #commenttrue>
+          <ion-card>
+            <ion-card-content>
+              <ion-item >
+                <ion-label color= "dark" class="ion-text-wrap">
+                  <h2>{{comentario.strComentario}}</h2>
+                  <p>{{comentario.dteFechaComentario}}</p>
+                </ion-label>
+                <ion-icon slot="end" color="success" name="checkmark-done-outline"></ion-icon>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ng-template>
+     </ion-item-sliding>
+  </ion-list>
+  <ng-template #noclientes>
+    <ion-card>
+      <ion-card-header>
+        
+        <ion-img src="assets/icon/vacio.png"></ion-img>
+        <ion-card-title color="dark"> {{cliente.strNombre}} {{cliente.strApellidos}} no ha hecho comentarios</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ng-template>
+</ion-content>

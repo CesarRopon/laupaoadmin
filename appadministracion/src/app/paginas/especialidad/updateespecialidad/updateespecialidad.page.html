@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="especialidad">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title >
+       <small>Actualizar especialidad</small>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+     <ion-card-title class="ion-margin-start" color="dark">Cambia o deja igual los campos que necesites.</ion-card-title> 
+    </ion-card-header>
+  
+    <ion-card-content>
+  
+      <ion-card-subtitle color="dark" class="ion-margin">
+        <ion-card-subtitle>Descripcion</ion-card-subtitle>
+        <ion-input   [(ngModel)]="especialidad.strDescripcion" value="{{espec.strDescripcion}}" name="descripcion"></ion-input>
+      </ion-card-subtitle>
+
+      <ion-card-subtitle color="dark" class="ion-margin" >
+        <ion-card-subtitle>Costo</ion-card-subtitle>
+        <ion-input   [(ngModel)] ="especialidad.nmbCosto" value="{{espec.nmbCosto}}" name="precio"></ion-input>
+      </ion-card-subtitle>
+  
+      <ion-button expand="block" color="primary" class="ion-margin" (click)="alertas(especialidad)" >Actualizar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  </ion-content>

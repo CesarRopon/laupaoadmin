@@ -1,0 +1,59 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="productos">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title >
+       <small>Nuevo producto</small>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>
+      Img producto
+    </ion-card-subtitle>
+    <ion-item>
+      <ion-img src="base64Image"></ion-img>
+    </ion-item>
+  </ion-card-header>
+
+  <ion-card-content>
+
+    <ion-card-subtitle color="dark" class="ion-margin">
+      <ion-input  [(ngModel)]="producto.strNombre" type="text" placeholder="Nombre producto" name="nom"></ion-input>
+    </ion-card-subtitle>
+    <ion-card-subtitle color="dark" class="ion-margin">
+      <ion-input [(ngModel)]="producto.nmbCosto" type="number" placeholder="Precio" name="cost"></ion-input>
+    </ion-card-subtitle>
+    <ion-item class="ion-margin-end ion-margin-start">
+      <ion-label>Tipo de postre</ion-label>
+      <ion-select [(ngModel)]="tipopostre" interface="popover">
+        <ion-select-option *ngFor="let tipo of tipos" value="{{tipo.strDescripcion}}">{{tipo.strDescripcion}}</ion-select-option>
+      </ion-select>
+    </ion-item>     
+    <ion-card-subtitle color="dark" class="ion-margin">
+      <ion-textarea rows="5" cols="10" placehoder="Descripcion" [(ngModel)]="producto.strDescripcion" type="text" placeholder="precio" name="descr"></ion-textarea>
+    </ion-card-subtitle>
+  </ion-card-content>
+</ion-card>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="primary">
+      <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button color="success">
+        <ion-icon (click)="alertas(producto)" name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button  color="light">
+        <ion-icon  name="camera-outline" (click)="presentActionSheet()"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

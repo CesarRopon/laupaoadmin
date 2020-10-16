@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="pedidos">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title >
+       <small>Detalle de producto</small>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let pedido of pedidos">
+    <ion-card-header >
+      <ion-card-title>Pedido de {{pedido.idCliente.strNombre}} {{pedido.idCliente.strApellidos}} </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <h2 color="dark" class="ion-text-center">Detalles del pedido</h2>
+        <br>
+        <ion-label>Fecha de alta: {{pedido.strFechaAlta}}</ion-label>
+        <br><br>
+        <ion-label >Fecha de entrega: {{pedido.strFechaEntrega}}</ion-label>
+        <br><br>
+        <ion-text slot="end">Total: ${{pedido.nmbMonto}}</ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <h3 color="dark" class="ion-text-center">Productos del pedido</h3>
+  <ion-card *ngFor="let detalle of detalles">
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-avatar>
+          <ion-img src="https://t1.rg.ltmcdn.com/es/images/6/3/4/img_pastel_de_moka_envinado_12436_600.jpg">
+  
+          </ion-img>
+          
+        </ion-avatar>
+        <ion-label color="dark" class="ion-text-wrap">
+          <h3>Nombre: {{detalle.idProducto.strNombre}}</h3>
+          <p>Precio unitario: ${{detalle.idProducto.nmbCosto}}</p>
+          <p>Cantidad pedida: {{detalle.nmbCantidad}} </p>
+          <p>Total producto: ${{multiplicacion(detalle.nmbCantidad, detalle.idProducto.nmbCosto)}}</p>
+        </ion-label>
+
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+

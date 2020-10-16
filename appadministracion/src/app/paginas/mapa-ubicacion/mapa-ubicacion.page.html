@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="pedidos">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="alertas()" >
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title >
+       <small>Pedido de: {{cliente.strNombre}} {{cliente.strApellidos}}</small>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+      <div #map id="map" ></div>
+</ion-content>

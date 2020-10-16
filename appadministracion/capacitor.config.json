@@ -1,0 +1,26 @@
+{
+  "appId": "com.appadmin.app",
+  "appName": "appadmin",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "19",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "300",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "screen",
+      "SplashScreenDelay": "3000",
+      "orientation": "portrait",
+      "GOOGLE_MAPS_ANDROID_API_KEY": "(AIzaSyCQwim6MNR-RRF1nBtFc9aUbpK08KNbzWw)"
+    }
+  }
+}

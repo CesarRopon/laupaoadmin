@@ -1,0 +1,105 @@
+<ion-menu side="end" type="push" menuId="eleven" content-id="main-content11" >
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item routerLink="/menuprincipal">
+        <ion-icon name="home-outline" color="dark" slot="start"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-item>
+      <ion-item routerLink="/productos">
+        <ion-icon name="fast-food-outline" color="dark" slot="start"></ion-icon>
+        <ion-label>Productos</ion-label>
+      </ion-item>
+      <ion-item routerLink="/tipo">
+        <ion-icon name="restaurant-outline" slot="start"></ion-icon>
+        <ion-label >Tipos de postre</ion-label>
+      </ion-item>
+      <ion-item routerLink="/tamanio">
+        <ion-icon name="bar-chart-outline"  color="dark" slot="start"></ion-icon>
+        <ion-label >Tamaños</ion-label>
+      </ion-item>
+      <ion-item color="light">
+        <ion-icon name="star-outline"  color="dark" slot="start"></ion-icon>
+        <ion-label >Especialidades</ion-label>
+      </ion-item>
+      <ion-item routerLink="/pedidos">
+        <ion-icon name="document-text-outline" color="dark" slot="start"></ion-icon>
+        <ion-label>Pedidos</ion-label>
+      </ion-item>
+      <ion-item routerLink="/clientes">
+        <ion-icon name="people-outline" color="dark" slot="start"></ion-icon>
+        <ion-label >Clientes</ion-label>
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-icon name="log-out-outline"  color="dark" slot="start"></ion-icon>
+        <ion-label >Cerrar sesion</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<div class="ion-page" id="main-content11">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title >Especialidades</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button (click)="openMenu()"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content *ngIf ="numero !==0; else noEspec">
+<ion-list  #myList lines="full">
+    <ion-item-sliding *ngFor="let especialidad of especialidades">
+      <ion-card>
+        <ion-card-content>
+          <ion-item >
+            <ion-label color= "dark" class="ion-text-wrap">
+              <h2>{{especialidad.strDescripcion}}</h2>
+            </ion-label>
+            <ion-reorder slot="end" name="call-outline"></ion-reorder>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="alertas(especialidad._id)">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-item-option>
+            <ion-item-option color="primary"  [routerLink]="['/especialidad', especialidad._id]">
+              <ion-icon slot="icon-only" name="document-text-outline"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-card-content>
+      </ion-card>
+        </ion-item-sliding>
+    </ion-list>
+
+        <ion-fab  vertical="bottom" horizontal="bottom" slot="fixed">
+            <ion-fab-button color="primary">
+             <ion-icon routerLink='/agregarespecialidad' name="add"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+</ion-content>
+
+<ng-template #noEspec>
+  <ion-content>
+   <ion-card >
+     <ion-card-header >
+       <ion-img src="assets/icon/vacio.png"></ion-img>
+     </ion-card-header>
+     <ion-card-content>
+       <ion-card-title color="dark">Sin especialidades</ion-card-title>  
+        Click en el boton inferior para agregar.
+     </ion-card-content>
+   </ion-card>
+   <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
+     <ion-fab-button color="primary">
+       <ion-icon  routerLink='/agregarespecialidad' name="add"></ion-icon>
+     </ion-fab-button>
+   </ion-fab>
+ </ion-content> 
+ </ng-template>
+</div>

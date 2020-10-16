@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="menuprincipal">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title >
+       <small>Actualizar datos admin</small>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--
+      strEmail: string;
+	strPassword: string;
+	strNombre: string;
+    strApellidos: string;
+    strTelefono:string;
+    nmbLatitud?: number;
+	nmbLongitud?: number;
+-->
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+     <ion-card-title class="ion-margin-start" color="dark">Cambia o deja igual los campos que necesites.</ion-card-title> 
+    </ion-card-header>
+  
+    <ion-card-content>
+  
+      <ion-card-subtitle color="dark" class="ion-margin">
+        <ion-card-subtitle>Nombre(s)</ion-card-subtitle>
+        <ion-input   [(ngModel)]="admin.strNombre" value="{{admiin.strNombre}}" name="nomb"></ion-input>
+      </ion-card-subtitle>
+
+      <ion-card-subtitle color="dark" class="ion-margin" >
+        <ion-card-subtitle>Apellido(s)</ion-card-subtitle>
+        <ion-input   [(ngModel)] ="admin.strApellidos" value="{{admiin.strApellidos}}" name="apellidos"></ion-input>
+      </ion-card-subtitle>
+      <ion-card-subtitle color="dark" class="ion-margin">
+        <ion-card-subtitle>Telefono</ion-card-subtitle>
+        <ion-input   [(ngModel)]="admin.strTelefono" value="{{admiin.strTelefono}}" name="telefono"></ion-input>
+      </ion-card-subtitle>
+
+      <ion-card-subtitle color="dark" class="ion-margin" >
+        <ion-card-subtitle>Email</ion-card-subtitle>
+        <ion-input   [(ngModel)] ="admin.strEmail" disabled value="{{admiin.strEmail}}" name="email"></ion-input>
+      </ion-card-subtitle>
+
+
+      <ion-button expand="block" color="primary" class="ion-margin" (click)="alertas(admin)" >Actualizar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  </ion-content>
